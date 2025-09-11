@@ -1,10 +1,12 @@
 require('dotenv').config();
 
 const path = require('path');
+
 const express = require('express');
 const app = express();
 const routes = require('./routes.js');
 const mongoose = require('mongoose');
+
 mongoose.connect(process.env.CONECTIONSTRING)
     .then(()=>{
         console.log('Base de dados conectada')

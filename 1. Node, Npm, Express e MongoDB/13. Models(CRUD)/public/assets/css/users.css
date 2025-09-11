@@ -1,0 +1,117 @@
+/* style.css exclusivo para Lista de Usuários */
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Corpo da página */
+body {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 50px 20px;
+}
+
+/* Tabela de usuários */
+.usuarios-table {
+    width: 100%;
+    max-width: 1000px;
+    border-collapse: collapse;
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Animação de fade-in */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Cabeçalho da tabela */
+.usuarios-table th {
+    background: linear-gradient(135deg, #0072ff, #00c6ff);
+    color: #fff;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+}
+
+/* Linhas da tabela */
+.usuarios-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Alternando cores das linhas */
+.usuarios-table tr:nth-child(even) td {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Botões dentro da tabela */
+button {
+    padding: 8px 18px;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: #fff;
+}
+
+/* Botão de atualizar */
+.usuarios-table a button {
+    background: linear-gradient(135deg, #0072ff, #00c6ff);
+    box-shadow: 0 4px 15px rgba(0, 198, 255, 0.4);
+}
+
+.usuarios-table a button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 198, 255, 0.6);
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+}
+
+/* Botão de deletar */
+.usuarios-table form button {
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    box-shadow: 0 4px 15px rgba(255, 75, 43, 0.4);
+}
+
+.usuarios-table form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 75, 43, 0.6);
+    background: linear-gradient(135deg, #ff4b2b, #ff416c);
+}
+
+/* Responsividade */
+@media (max-width: 800px) {
+    .usuarios-table th, .usuarios-table td {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    button {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 500px) {
+    body {
+        padding: 20px 10px;
+        align-items: center;
+    }
+
+    .usuarios-table {
+        font-size: 0.85rem;
+    }
+}

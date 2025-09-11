@@ -1,7 +1,3 @@
-const HomeModel = require('../models/HomeModel.js');
-
-
-
 exports.paginaInicial = (req,res)=>{
     res.render('index');
 }
