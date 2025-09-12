@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lista de Usuários</title>
+  <link rel="stylesheet" href="/assets/css/users.css">
+</head>
+<body>
+  <table class="usuarios-table">
+    <tr>
+      <th>Nome</th>
+      <th>Idade</th>
+      <th>Sexo</th>
+      <th>Altura</th>
+      <th>Peso</th>
+      <th>Atualizar</th>
+      <th>Deletar</th>
+    </tr>
+    <% users.forEach(user => { %>
+      <tr>
+        <td><%= user.nome %></td>
+        <td><%= user.idade %></td>
+        <td><%= user.sexo %></td>
+        <td><%= user.altura %></td>
+        <td><%= user.peso %></td>
+        <td>
+          <a href="/user/update/<%= user._id %>">
+            <button>Atualizar</button>
+          </a>
+        </td>
+        <td>
+          <form action="/delete/<%= user._id %>" method="POST" onsubmit="return confirm('Tem certeza que deseja deletar este usuário?');">
+            <button type="submit">Deletar</button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+  </table>
+</body>
+</html>
