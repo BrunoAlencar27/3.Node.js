@@ -4,9 +4,11 @@ const UserModel = require('../models/UserModel.js');
 
 exports.home = (req,res) => {
     res.render('index');
+    
 }
 
 exports.cadastro = (req,res) => {
+    console.log(req.session.usuário);
     res.render('create');
 }
 

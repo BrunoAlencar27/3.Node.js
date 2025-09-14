@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dashboard</title>
+  <style>
+    :root{
+      --bg:#0f172a;
+      --card:#0b1220;
+      --muted:#94a3b8;
+      --success:#10b981;
+      font-family: Inter, Roboto, "Segoe UI", Arial, sans-serif;
+    }
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,#071023 0%, #071a2a 100%);
+      color:#e6eef8;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+    .container{
+      width:100%;
+      max-width:720px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border-radius:12px;
+      padding:28px;
+      box-sizing:border-box;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+    }
+    h1{ margin:0 0 8px 0; font-size:1.4rem;}
+    p { color:var(--muted); margin:0 0 18px 0; }
+    .msg.success{
+      display:inline-block;
+      background: rgba(16,185,129,0.08);
+      color:var(--success);
+      padding:10px 12px;
+      border-radius:8px;
+      border:1px solid rgba(16,185,129,0.12);
+      margin-bottom:14px;
+    }
+    .btn-logout{
+      margin-top:18px;
+      padding:10px 12px;
+      border-radius:8px;
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.06);
+      color:inherit;
+      cursor:pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Dashboard</h1>
+    <% if (mensagemSucesso && mensagemSucesso.length > 0) { %>
+      <div class="msg success"><%= mensagemSucesso %></div>
+    <% } %>
+
+    <p>Você está logado no sistema. Aqui você pode colocar o conteúdo do seu painel.</p>
+
+    <form action="/login" method="GET" style="margin-top:18px;">
+      <button class="btn-logout" type="submit">Sair</button>
+    </form>
+  </div>
+</body>
+</html>

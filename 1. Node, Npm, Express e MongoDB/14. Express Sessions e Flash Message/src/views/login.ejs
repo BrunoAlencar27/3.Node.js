@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login</title>
+  <style>
+    :root{
+      --bg:#f4f7fb;
+      --card:#ffffff;
+      --accent:#4f46e5;
+      --danger:#ef4444;
+      --success:#16a34a;
+      --muted:#6b7280;
+      --shadow: 0 6px 18px rgba(15,23,42,0.08);
+      font-family: Inter, Roboto, "Segoe UI", Arial, sans-serif;
+    }
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg, #eef2ff 0%, var(--bg) 100%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+    .card{
+      width:100%;
+      max-width:420px;
+      background:var(--card);
+      border-radius:12px;
+      box-shadow:var(--shadow);
+      padding:28px;
+      box-sizing:border-box;
+    }
+    h1{
+      margin:0 0 8px 0;
+      font-size:1.25rem;
+      color:#0f172a;
+    }
+    p.lead{
+      margin:0 0 18px 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+    form{display:grid; gap:12px;}
+    input[type="text"], input[type="password"]{
+      width:100%;
+      padding:12px 14px;
+      border-radius:8px;
+      border:1px solid #e6e9ef;
+      font-size:0.96rem;
+      box-sizing:border-box;
+    }
+    button{
+      padding:12px 14px;
+      border-radius:8px;
+      border:0;
+      cursor:pointer;
+      font-weight:600;
+      background:linear-gradient(90deg,var(--accent),#7c3aed);
+      color:#fff;
+      font-size:0.98rem;
+    }
+    .msg{
+      padding:10px 12px;
+      border-radius:8px;
+      font-size:0.95rem;
+      margin-bottom:6px;
+    }
+    .msg.error{
+      background: #fff5f5;
+      color:var(--danger);
+      border: 1px solid rgba(239,68,68,0.08);
+    }
+    .msg.success{
+      background:#f0fdf4;
+      color:var(--success);
+      border:1px solid rgba(16,185,129,0.06);
+    }
+    .helper{
+      margin-top:8px;
+      font-size:0.85rem;
+      color:var(--muted);
+      text-align:center;
+    }
+    .center { text-align:center; }
+  </style>
+</head>
+<body>
+  <div class="card" role="main">
+    <h1>Entrar</h1>
+    <p class="lead">Informe suas credenciais para acessar o sistema.</p>
+
+    <!-- Mensagens Flash -->
+    <% if (mensagemErro && mensagemErro.length > 0) { %>
+      <div class="msg error"><%= mensagemErro %></div>
+    <% } %>
+
+    <% if (mensagemSucesso && mensagemSucesso.length > 0) { %>
+      <div class="msg success"><%= mensagemSucesso %></div>
+    <% } %>
+
+    <!-- Formulário: envia para a rota de login (POST) -->
+    <form action="/login" method="POST" autocomplete="off">
+      <input type="text" name="usuario" placeholder="Usuário" required />
+      <input type="password" name="senha" placeholder="Senha" required />
+      <button type="submit">Entrar</button>
+    </form>
+
+    <p class="helper center">Teste com <strong>bruno / 123</strong> — caso contrário vai mostrar erro.</p>
+  </div>
+</body>
+</html>
