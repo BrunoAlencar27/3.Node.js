@@ -73,5 +73,5 @@ app.on('pronto',()=>{
     app.listen(3000, async()=>{
     console.log('Servidor iniciado');
     });
-})
+});
 
